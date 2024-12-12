@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<style>
+     body{
+        margin:0px;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+     }
+    #marquee {
+      white-space: nowrap;
+      background-color: red;
+      height: 40px;
+      max-width: 1273px;
+      font-size: 20px;
+     }
+     marquee p{
+        display: inline;
+        margin-left:40px;
+        color:white;
+        position: relative;
+        top:4px;
+     }
+     .img{
+        margin-top: 20px;
+     }
+     .search-box {
+      position: relative;
+      width: 300px;
+      margin: 0 auto;
+      position:relative;
+      bottom:50px;
+      margin-left:200px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 25px;
+      outline: none;
+    }
+
+    .search-box i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #888;
+      pointer-events: none;
+    }
+
+    /* On focus style */
+    .search-box input:focus {
+      border-color: #007bff;
+    }
+    .my-account {
+      position: relative;
+      width: 200px;
+      margin: 50px;
+      cursor: pointer;
+      bottom:135px;
+      margin-left: 800px;
+    }
+
+    .my-account i {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      z-index: 1;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Show dropdown on hover */
+    .my-account:hover .dropdown-menu {
+      display: block;
+    }
+
+    .add-to-cart {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Icon styling */
+    .add-to-cart i {
+      margin-right: 10px;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0056b3;
+    }
+
+    .cart{
+        margin-left: 1078px;
+        position:relative;
+        bottom:217px;
+    }
+
+   /* Navbar without background color */
+/* Navbar without background color */
+#main-navbar {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  position: relative; /* Ensure navbar stays above normal content */
+  z-index: 10; /* Higher z-index to make sure navbar is above other elements */
+  bottom:140px;
+}
+
+/* Menu Item Styling */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu-item {
+  position: relative;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: black;
+  z-index: 10; /* Ensure dropdown stays above other elements */
+}
+
+/* Books Dropdown */
+.books-dropdown {
+  position: relative;
+  z-index: 10; /* Ensure dropdown content is above other elements */
+}
+
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: transparent; /* Remove background color */
+  width: auto; /* Only as wide as the content */
+  border-top: 1px solid black; /* Optional border */
+  z-index: 100; /* Highest z-index for dropdown visibility */
+}
+
+#dropdown-menu a {
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  display: block;
+  z-index: 10; /* Ensure visibility above other content */
+}
+
+#dropdown-menu a:hover {
+  background-color: #ddd;
+}
+
+/* Show dropdown on hover */
+.books-dropdown:hover #dropdown-menu {
+  display: block;
+}
+
+/* External Links (outside dropdown) */
+.external-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 20px; /* Optional margin for spacing */
+}
+
+.external-links a {
+  margin-left: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+/* Separator between items */
+.external-links a::after {
+  content: "|";
+  margin-left:10px;
+}
+
+.external-links a:last-child::after {
+  content: ""; /* Remove separator for the last item */
+}
+
+.img2{
+    position: relative;
+    bottom:130px;
+}
+hr {
+  border: 1px solid red;  /* Line ka color aur thickness */
+  width: 88%;               /* Line ki width */
+  margin: 20px auto;  
+  margin-right: 40px;      /* Image ke upar aur neeche margin */
+}
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 1273px; /* Set to your page width */
+  margin: auto;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  bottom:130px;
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Slide Images */
+.slide {
+  width: 1272px; /* Match the container width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image fits without distortion */
+  flex-shrink: 0;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.nav-btn.left {
+  left: 10px;
+}
+
+.nav-btn.right {
+  right: 10px;
+}
+
+.nav-btn:hover {
+  background-color: rgba(178, 9, 9, 0.7);
+}
+.pro{
+  position: relative;
+  bottom:120px;
+  margin-left:15px;
+}
+
+/* Container for the books */
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between books */
+  justify-content: center; /* Center the books */
+  position: relative;
+  bottom:120px;
+}
+
+/* Individual book item */
+.book-item {
+  flex: 1 1 calc(20% - 20px); /* 5 books in a row, minus the gap */
+  border: 1px solid #ddd; /* Border for each book */
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.book-item:hover {
+  transform: scale(1.05); /* Slightly enlarge the book item */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+/* Book image styling */
+.book-item img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-width: 130px; /* Maximum width */
+  max-height: 150px; /* Maximum height */
+  object-fit: contain; /* Ensures the image fits within the set dimensions without distortion */
+  margin-bottom: 10px;
+}
+
+
+/* Styling for book title and price */
+.book-item h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.book-item p {
+  font-size: 1em;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Button styling */
+.buy-btn, .add-cart-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+}
+
+.buy-btn:hover, .add-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+/* uthor*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#featured-authors-section {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom:100px;
+}
+
+#featured-authors-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#image-scroll-container {
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    width: 80%; /* Adjust as per your requirement */
+}
+
+.author-images-list {
+    display: inline-flex;
+    gap: 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.author-images-list img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.author-images-list img:hover {
+    transform: scale(1.1);
+}
+
+.slider-arrow {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+#left-arrow {
+    left: 10px;
+}
+
+#right-arrow {
+    right: 10px;
+}
+
+.slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Basic styles remain the same */
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.social-links li {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.social-links .social-icon {
+    color: #ddd;
+    font-size: 24px;  /* Adjust the size of the icons */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links .social-icon:hover {
+    color: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding-bottom: 40px;
+}
+
+#footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.social-links li {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.social-links .social-icon {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.social-links .social-icon:hover {
+    color: #f0f0f0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+ </style>
+    <div id="marquee">
+        <marquee scrollamount="20">
+        <p>· Grab Bestselling Books upto 50% Off!</p>
+        <p>· FLAT 10% Off (Maximum Discount Rs.50) Use Code - BWSPECIAL10</p>
+        <p>· Grab Bestselling Books upto 50% Off!</p>
+        <p>· FLAT 10% Off (Maximum Discount Rs.50) Use Code - BWSPECIAL10</p>
+    </marquee>
+ <div class="second">
+    <div class="img"> <img src="https://d2g9wbak88g7ch.cloudfront.net/staticimages/logo-new.png"></div>
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class="fas fa-search"></i> <!-- Search Icon -->
+    </div>
+ </div><!--end -->
+
+ <div class="my-account">
+    <i class="fas fa-user"></i> My Account
+    <div class="dropdown-menu">
+      <a href="#">Login</a>
+      <a href="#">Settings</a>
+      <a href="#">Change Password</a>
+    </div>
+  </div>
+
+<div class="cart">
+  <button class="add-to-cart">
+    <i class="fas fa-shopping-cart"></i> Add to Cart
+  </button>
+  </div>
+
+    <!-- Navbar -->
+    <nav id="main-navbar">
+      <ul class="menu-list">
+        <!-- Books Dropdown -->
+        <li class="menu-item books-dropdown">
+          <i class="fas fa-book"></i> Books
+          <div id="dropdown-menu">
+            <!-- Dropdown Links for Books -->
+            <a href="#">History Book</a>
+            <a href="#">Marathi Book</a>
+            <a href="#">Art Book</a>
+            <a href="#">Drawing Book</a>
+          </div>
+        </li>
+        <!-- External Book Options -->
+        <div class="external-links">
+          <a href="#">New Arrivals</a>
+          <a href="#">Box Sellers</a>
+          <a href="#">Box Sets</a>
+          <a href="#">Today's Deal</a>
+          <a href="#">Request a Book</a>
+        </div>
+      </ul>
+      
+    </nav>
+  <div class="img2">
+    <!-- Image tag to display image -->
+<img src="https://www.bookswagon.com/images/promotionimages/web/2_CuratedWeb0412.jpg" alt="Book Promotion" width="100%" />
+  </div>
+
+  <div class="slider-container">
+    <div class="slider">
+      <img src="https://www.bookswagon.com/bannerimages/81_inr.jpg?v=2.5" alt="Image 1" class="slide">
+      <img src="https://www.bookswagon.com/bannerimages/31_inr.jpg?v=3.4" alt="Image 2" class="slide">
+      <img src="https://www.bookswagon.com/bannerimages/70_inr.jpg?v=2.2" alt="Image 3" class="slide">
+      <img src="https://www.bookswagon.com/bannerimages/79_inr.jpg?v=2.2" alt="Image 4" class="slide">
+      <img src="https://www.bookswagon.com/bannerimages/83_inr.jpg?v=2.2" alt="Image 5" class="slide">
+      <img src="https://www.bookswagon.com/bannerimages/85_inr.jpg?v=3.4" alt="Image 6" class="slide">
+    </div>
+    <button class="nav-btn left" onclick="moveSlide(-1)">&#8249;</button>
+    <button class="nav-btn right" onclick="moveSlide(1)">&#8250;</button>
+  </div>
+  <div class="pro">
+    <h2><i>Treadining</i></h2>
+  </div>
+
+  <div class="book-container">
+    <div class="book-item">
+      <img src="https://img.bookchor.com/images/cover/bc/9789356295698_17308838970.jpg" alt="Book 1">
+      <h3>Ratan Tata life</h3>
+      <p>$20.00</p>
+      <button class="buy-btn">Buy</button>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+    <div class="book-item">
+      <img src="https://img.bookchor.com/images/cover/591/9780099590088.jpg" alt="Book 2">
+      <h3>Saspenas book</h3>
+      <p>$25.00</p>
+      <button class="buy-btn">Buy</button>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+    <div class="book-item">
+      <img src="https://www.bookswagon.com/productimages/images200/532/9788197489532.jpg" alt="Book 3">
+      <h3>karan son of surya</h3>
+      <p>$18.00</p>
+      <button class="buy-btn">Buy</button>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+    <div class="book-item">
+      <img src="https://www.bookswagon.com/productimages/images200/986/9780143447986.jpg" alt="Book 4">
+      <h3>30 day better english</h3>
+      <p>$22.00</p>
+      <button class="buy-btn">Buy</button>
+      <button class="add-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+<!--all books-->
+<div class="pro">
+<h2>All books</h2>
+</div>
+
+<div class="book-container">
+  <div class="book-item">
+    <img src="https://d2g9wbak88g7ch.cloudfront.net/productimages/mainimages/418/9781408864418.jpg" alt="Book 1">
+    <h3>The golden round</h3>
+    <p>$20.00</p>
+    <button class="buy-btn">Buy</button>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
+  <div class="book-item">
+    <img src="https://d2g9wbak88g7ch.cloudfront.net/productimages/mainimages/096/9781911717096.jpg" alt="Book 2">
+    <h3>Nexus</h3>
+    <p>$25.00</p>
+    <button class="buy-btn">Buy</button>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
+  <div class="book-item">
+    <img src="https://d2g9wbak88g7ch.cloudfront.net/productimages/mainimages/522/9780143465522.jpg" alt="Book 3">
+    <h3>mastaring the data</h3>
+    <p>$18.00</p>
+    <button class="buy-btn">Buy</button>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
+  <div class="book-item">
+    <img src="https://d2g9wbak88g7ch.cloudfront.net/productimages/mainimages/295/9780143442295.jpg" alt="Book 4">
+    <h3>Life Amizing Secreats</h3>
+    <p>$22.00</p>
+    <button class="buy-btn">Buy</button>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
+</div>
+
+<div id="featured-authors-section">
+  <h2>Featured Authors</h2>
+  <div id="slider-container">
+      <!-- Left Arrow Icon -->
+      <button id="left-arrow" class="slider-arrow">&#8592;</button>
+      
+      <div id="image-scroll-container">
+          <div class="author-images-list">
+              <!-- Image items (Total 10 images) -->
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/download.jpg" alt="Author 1">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/william-wordsworth-8.jpg" alt="Author 2">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/stephan-coonts.jpg" alt="Author 3">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/stephen-edwin-king.jpg" alt="Author 4">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/dillian.jpg" alt="Author 5">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/sylvia2.jpg" alt="Author 6">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/dr-shashi-tharoor-2.jpg" alt="Author 7">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/arundhatistory_647_100316054702.jpg" alt="Author 8">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/gayle-forman.jpg" alt="Author 9">
+              <img src="https://d2g9wbak88g7ch.cloudfront.net/authorimages/ma10_milestones_segal.jpg" alt="Author 10">
+          </div>
+      </div>
+
+      <!-- Right Arrow Icon -->
+      <button id="right-arrow" class="slider-arrow">&#8594;</button>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Footer Section -->
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Policies</h4>
+            <ul>
+                <li><a href="#">Privacy Policies</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Secure Shopping</a></li>
+                <li><a href="#">Copyright Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="#">Payment</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Return</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Misc</h4>
+            <ul>
+                <li><a href="#">Affiliate</a></li>
+                <li><a href="#">Sitemap</a></li>
+                <li><a href="#">Download Our App</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <ul class="social-links">
+                <li><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a></li>
+                <li><a href="#" class="social-icon"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Your Book Website. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+  let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function moveSlide(direction) {
+  currentSlide += direction;
+
+  // Loop back to first or last slide
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  } else if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
+
+  document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 1273}px)`; // Adjust slide width
+}
+
+const leftArrow = document.getElementById('left-arrow');
+const rightArrow = document.getElementById('right-arrow');
+const imageScrollContainer = document.getElementById('image-scroll-container');
+const imagesList = document.querySelector('.author-images-list');
+
+let scrollAmount = 0;
+
+leftArrow.addEventListener('click', () => {
+    scrollAmount -= 120; // Adjust the scroll distance as needed
+    if (scrollAmount < 0) scrollAmount = 0; // Prevent scrolling beyond the first image
+    imagesList.style.transform = `translateX(-${scrollAmount}px)`;
+});
+
+rightArrow.addEventListener('click', () => {
+    const maxScroll = imagesList.scrollWidth - imageScrollContainer.offsetWidth;
+    scrollAmount += 120; // Adjust the scroll distance as needed
+    if (scrollAmount > maxScroll) scrollAmount = maxScroll; // Prevent scrolling beyond the last image
+    imagesList.style.transform = `translateX(-${scrollAmount}px)`;
+});
+
+</script>
+</html>
